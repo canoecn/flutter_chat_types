@@ -24,6 +24,7 @@ abstract class TextMessage extends Message {
     super.roomId,
     super.showStatus,
     super.status,
+    super.checkStatus,
     required this.text,
     MessageType? type,
     super.updatedAt,
@@ -40,6 +41,7 @@ abstract class TextMessage extends Message {
     String? roomId,
     bool? showStatus,
     Status? status,
+    CheckStatus? checkStatus,
     required String text,
     MessageType? type,
     int? updatedAt,
@@ -59,6 +61,7 @@ abstract class TextMessage extends Message {
     String? roomId,
     bool? showStatus,
     Status? status,
+    CheckStatus? checkStatus,
     int? updatedAt,
   }) =>
       _TextMessage(
@@ -72,6 +75,7 @@ abstract class TextMessage extends Message {
         roomId: roomId,
         showStatus: showStatus,
         status: status,
+        checkStatus: checkStatus,
         text: partialText.text,
         type: MessageType.text,
         updatedAt: updatedAt,
@@ -96,6 +100,7 @@ abstract class TextMessage extends Message {
         roomId,
         showStatus,
         status,
+        checkStatus,
         text,
         updatedAt,
       ];
@@ -112,6 +117,7 @@ abstract class TextMessage extends Message {
     String? roomId,
     bool? showStatus,
     Status? status,
+    CheckStatus? checkStatus,
     String? text,
     int? updatedAt,
   });
@@ -134,6 +140,7 @@ class _TextMessage extends TextMessage {
     super.roomId,
     super.showStatus,
     super.status,
+    super.checkStatus,
     required super.text,
     super.type,
     super.updatedAt,
@@ -151,6 +158,7 @@ class _TextMessage extends TextMessage {
     dynamic roomId,
     dynamic showStatus = _Unset,
     dynamic status = _Unset,
+    dynamic checkStatus = _Unset,
     String? text,
     dynamic updatedAt = _Unset,
   }) =>
@@ -172,6 +180,9 @@ class _TextMessage extends TextMessage {
         showStatus:
             showStatus == _Unset ? this.showStatus : showStatus as bool?,
         status: status == _Unset ? this.status : status as Status?,
+        checkStatus: checkStatus == _Unset
+            ? this.checkStatus
+            : checkStatus as CheckStatus?,
         text: text ?? this.text,
         updatedAt: updatedAt == _Unset ? this.updatedAt : updatedAt as int?,
       );

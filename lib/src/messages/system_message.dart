@@ -22,6 +22,7 @@ abstract class SystemMessage extends Message {
     super.roomId,
     super.showStatus,
     super.status,
+    super.checkStatus,
     required this.text,
     MessageType? type,
     super.updatedAt,
@@ -37,6 +38,7 @@ abstract class SystemMessage extends Message {
     String? roomId,
     bool? showStatus,
     Status? status,
+    CheckStatus? checkStatus,
     required String text,
     MessageType? type,
     int? updatedAt,
@@ -61,6 +63,7 @@ abstract class SystemMessage extends Message {
         roomId,
         showStatus,
         status,
+        checkStatus,
         text,
         updatedAt,
       ];
@@ -76,6 +79,7 @@ abstract class SystemMessage extends Message {
     String? roomId,
     bool? showStatus,
     Status? status,
+    CheckStatus? checkStatus,
     String? text,
     int? updatedAt,
   });
@@ -98,6 +102,7 @@ class _SystemMessage extends SystemMessage {
     super.roomId,
     super.showStatus,
     super.status,
+    super.checkStatus,
     required super.text,
     super.type,
     super.updatedAt,
@@ -114,6 +119,7 @@ class _SystemMessage extends SystemMessage {
     dynamic roomId,
     dynamic showStatus = _Unset,
     dynamic status = _Unset,
+    dynamic checkStatus = _Unset,
     String? text,
     dynamic updatedAt = _Unset,
   }) =>
@@ -132,6 +138,9 @@ class _SystemMessage extends SystemMessage {
         showStatus:
             showStatus == _Unset ? this.showStatus : showStatus as bool?,
         status: status == _Unset ? this.status : status as Status?,
+        checkStatus: checkStatus == _Unset
+            ? this.checkStatus
+            : checkStatus as CheckStatus?,
         text: text ?? this.text,
         updatedAt: updatedAt == _Unset ? this.updatedAt : updatedAt as int?,
       );

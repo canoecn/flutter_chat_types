@@ -21,6 +21,8 @@ TextMessage _$TextMessageFromJson(Map<String, dynamic> json) => TextMessage(
       roomId: json['roomId'] as String?,
       showStatus: json['showStatus'] as bool?,
       status: $enumDecodeNullable(_$StatusEnumMap, json['status']),
+      checkStatus:
+          $enumDecodeNullable(_$CheckStatusEnumMap, json['checkStatus']),
       text: json['text'] as String,
       type: $enumDecodeNullable(_$MessageTypeEnumMap, json['type']),
       updatedAt: json['updatedAt'] as int?,
@@ -45,6 +47,7 @@ Map<String, dynamic> _$TextMessageToJson(TextMessage instance) {
   writeNotNull('roomId', instance.roomId);
   writeNotNull('showStatus', instance.showStatus);
   writeNotNull('status', _$StatusEnumMap[instance.status]);
+  writeNotNull('checkStatus', _$CheckStatusEnumMap[instance.checkStatus]);
   val['type'] = _$MessageTypeEnumMap[instance.type]!;
   writeNotNull('updatedAt', instance.updatedAt);
   writeNotNull('previewData', instance.previewData?.toJson());
@@ -58,6 +61,11 @@ const _$StatusEnumMap = {
   Status.seen: 'seen',
   Status.sending: 'sending',
   Status.sent: 'sent',
+};
+
+const _$CheckStatusEnumMap = {
+  CheckStatus.checked: 'checked',
+  CheckStatus.needChecked: 'needChecked',
 };
 
 const _$MessageTypeEnumMap = {

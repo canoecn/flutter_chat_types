@@ -26,6 +26,7 @@ abstract class AudioMessage extends Message {
     super.showStatus,
     required this.size,
     super.status,
+    super.checkStatus,
     MessageType? type,
     super.updatedAt,
     required this.uri,
@@ -46,6 +47,7 @@ abstract class AudioMessage extends Message {
     bool? showStatus,
     required num size,
     Status? status,
+    CheckStatus? checkStatus,
     MessageType? type,
     int? updatedAt,
     required String uri,
@@ -66,6 +68,7 @@ abstract class AudioMessage extends Message {
     String? roomId,
     bool? showStatus,
     Status? status,
+    CheckStatus? checkStatus,
     int? updatedAt,
   }) =>
       _AudioMessage(
@@ -82,6 +85,7 @@ abstract class AudioMessage extends Message {
         showStatus: showStatus,
         size: partialAudio.size,
         status: status,
+        checkStatus: checkStatus,
         type: MessageType.audio,
         updatedAt: updatedAt,
         uri: partialAudio.uri,
@@ -122,6 +126,7 @@ abstract class AudioMessage extends Message {
         showStatus,
         size,
         status,
+        checkStatus,
         updatedAt,
         uri,
         waveForm,
@@ -142,6 +147,7 @@ abstract class AudioMessage extends Message {
     bool? showStatus,
     num? size,
     Status? status,
+    CheckStatus? checkStatus,
     int? updatedAt,
     String? uri,
     List<double>? waveForm,
@@ -168,6 +174,7 @@ class _AudioMessage extends AudioMessage {
     super.showStatus,
     required super.size,
     super.status,
+    super.checkStatus,
     super.type,
     super.updatedAt,
     required super.uri,
@@ -189,6 +196,7 @@ class _AudioMessage extends AudioMessage {
     dynamic showStatus = _Unset,
     num? size,
     dynamic status = _Unset,
+    dynamic checkStatus = _Unset,
     dynamic updatedAt = _Unset,
     String? uri,
     dynamic waveForm = _Unset,
@@ -212,6 +220,9 @@ class _AudioMessage extends AudioMessage {
             showStatus == _Unset ? this.showStatus : showStatus as bool?,
         size: size ?? this.size,
         status: status == _Unset ? this.status : status as Status?,
+        checkStatus: checkStatus == _Unset
+            ? this.checkStatus
+            : checkStatus as CheckStatus?,
         updatedAt: updatedAt == _Unset ? this.updatedAt : updatedAt as int?,
         uri: uri ?? this.uri,
         waveForm:

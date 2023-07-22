@@ -23,6 +23,7 @@ abstract class CustomMessage extends Message {
     super.roomId,
     super.showStatus,
     super.status,
+    super.checkStatus,
     MessageType? type,
     super.updatedAt,
   }) : super(type: type ?? MessageType.custom);
@@ -37,6 +38,7 @@ abstract class CustomMessage extends Message {
     String? roomId,
     bool? showStatus,
     Status? status,
+    CheckStatus? checkStatus,
     MessageType? type,
     int? updatedAt,
   }) = _CustomMessage;
@@ -55,6 +57,7 @@ abstract class CustomMessage extends Message {
     String? roomId,
     bool? showStatus,
     Status? status,
+    CheckStatus? checkStatus,
     int? updatedAt,
   }) =>
       _CustomMessage(
@@ -67,6 +70,7 @@ abstract class CustomMessage extends Message {
         roomId: roomId,
         showStatus: showStatus,
         status: status,
+        checkStatus: checkStatus,
         type: MessageType.custom,
         updatedAt: updatedAt,
       );
@@ -83,6 +87,7 @@ abstract class CustomMessage extends Message {
         roomId,
         showStatus,
         status,
+        checkStatus,
         updatedAt,
       ];
 
@@ -97,6 +102,7 @@ abstract class CustomMessage extends Message {
     String? roomId,
     bool? showStatus,
     Status? status,
+    CheckStatus? checkStatus,
     int? updatedAt,
   });
 
@@ -118,6 +124,7 @@ class _CustomMessage extends CustomMessage {
     super.roomId,
     super.showStatus,
     super.status,
+    super.checkStatus,
     super.type,
     super.updatedAt,
   }) : super._();
@@ -133,6 +140,7 @@ class _CustomMessage extends CustomMessage {
     dynamic roomId,
     dynamic showStatus = _Unset,
     dynamic status = _Unset,
+    dynamic checkStatus = _Unset,
     dynamic updatedAt = _Unset,
   }) =>
       _CustomMessage(
@@ -150,6 +158,9 @@ class _CustomMessage extends CustomMessage {
         showStatus:
             showStatus == _Unset ? this.showStatus : showStatus as bool?,
         status: status == _Unset ? this.status : status as Status?,
+        checkStatus: checkStatus == _Unset
+            ? this.checkStatus
+            : checkStatus as CheckStatus?,
         updatedAt: updatedAt == _Unset ? this.updatedAt : updatedAt as int?,
       );
 }

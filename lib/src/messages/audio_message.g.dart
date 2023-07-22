@@ -22,6 +22,8 @@ AudioMessage _$AudioMessageFromJson(Map<String, dynamic> json) => AudioMessage(
       showStatus: json['showStatus'] as bool?,
       size: json['size'] as num,
       status: $enumDecodeNullable(_$StatusEnumMap, json['status']),
+      checkStatus:
+          $enumDecodeNullable(_$CheckStatusEnumMap, json['checkStatus']),
       type: $enumDecodeNullable(_$MessageTypeEnumMap, json['type']),
       updatedAt: json['updatedAt'] as int?,
       uri: json['uri'] as String,
@@ -49,6 +51,7 @@ Map<String, dynamic> _$AudioMessageToJson(AudioMessage instance) {
   writeNotNull('roomId', instance.roomId);
   writeNotNull('showStatus', instance.showStatus);
   writeNotNull('status', _$StatusEnumMap[instance.status]);
+  writeNotNull('checkStatus', _$CheckStatusEnumMap[instance.checkStatus]);
   val['type'] = _$MessageTypeEnumMap[instance.type]!;
   writeNotNull('updatedAt', instance.updatedAt);
   val['duration'] = instance.duration.inMicroseconds;
@@ -66,6 +69,11 @@ const _$StatusEnumMap = {
   Status.seen: 'seen',
   Status.sending: 'sending',
   Status.sent: 'sent',
+};
+
+const _$CheckStatusEnumMap = {
+  CheckStatus.checked: 'checked',
+  CheckStatus.needChecked: 'needChecked',
 };
 
 const _$MessageTypeEnumMap = {

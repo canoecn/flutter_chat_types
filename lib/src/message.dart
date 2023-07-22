@@ -26,6 +26,8 @@ enum MessageType {
 /// All possible statuses message can have.
 enum Status { delivered, error, seen, sending, sent }
 
+enum CheckStatus { checked, needChecked }
+
 /// An abstract class that contains all variables and methods
 /// every message will have.
 @immutable
@@ -40,6 +42,7 @@ abstract class Message extends Equatable {
     this.roomId,
     this.showStatus,
     this.status,
+    this.checkStatus,
     required this.type,
     this.updatedAt,
   });
@@ -99,6 +102,9 @@ abstract class Message extends Equatable {
   /// Message [Status].
   final Status? status;
 
+  /// Message [CheckStatus].
+  final CheckStatus? checkStatus;
+
   /// [MessageType].
   final MessageType type;
 
@@ -116,6 +122,7 @@ abstract class Message extends Equatable {
     String? roomId,
     bool? showStatus,
     Status? status,
+    CheckStatus? checkStatus,
     int? updatedAt,
   });
 

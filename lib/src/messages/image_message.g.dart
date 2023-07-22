@@ -21,6 +21,8 @@ ImageMessage _$ImageMessageFromJson(Map<String, dynamic> json) => ImageMessage(
       showStatus: json['showStatus'] as bool?,
       size: json['size'] as num,
       status: $enumDecodeNullable(_$StatusEnumMap, json['status']),
+      checkStatus:
+          $enumDecodeNullable(_$CheckStatusEnumMap, json['checkStatus']),
       type: $enumDecodeNullable(_$MessageTypeEnumMap, json['type']),
       updatedAt: json['updatedAt'] as int?,
       uri: json['uri'] as String,
@@ -46,6 +48,7 @@ Map<String, dynamic> _$ImageMessageToJson(ImageMessage instance) {
   writeNotNull('roomId', instance.roomId);
   writeNotNull('showStatus', instance.showStatus);
   writeNotNull('status', _$StatusEnumMap[instance.status]);
+  writeNotNull('checkStatus', _$CheckStatusEnumMap[instance.checkStatus]);
   val['type'] = _$MessageTypeEnumMap[instance.type]!;
   writeNotNull('updatedAt', instance.updatedAt);
   writeNotNull('height', instance.height);
@@ -62,6 +65,11 @@ const _$StatusEnumMap = {
   Status.seen: 'seen',
   Status.sending: 'sending',
   Status.sent: 'sent',
+};
+
+const _$CheckStatusEnumMap = {
+  CheckStatus.checked: 'checked',
+  CheckStatus.needChecked: 'needChecked',
 };
 
 const _$MessageTypeEnumMap = {
