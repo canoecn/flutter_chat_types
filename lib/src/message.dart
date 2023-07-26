@@ -26,7 +26,7 @@ enum MessageType {
 /// All possible statuses message can have.
 enum Status { delivered, error, seen, sending, sent }
 
-enum CheckStatus { checked, needChecked }
+enum CheckStatus { checked, needChecked, checking }
 
 /// An abstract class that contains all variables and methods
 /// every message will have.
